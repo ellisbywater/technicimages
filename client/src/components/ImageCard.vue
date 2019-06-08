@@ -1,7 +1,9 @@
 <template>
     <div class="card">
         <div class="card-image">
-            <img :src="imageUrl" />
+            <figure class="image is-3by2">
+                <img :src="imageUrl" :alt="author" />
+            </figure>
         </div>
         <div class="media-content">
             <p class="title is-4">{{ author }}</p>

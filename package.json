@@ -4,11 +4,25 @@
   "description": "server for vue-image",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "client": "npm run serve --prefix client",
+    "dev": "concurrently \"npm start\" \"npm run client\""
   },
   "author": "ebwx",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "progressive-image": "^1.2.0",
+    "vue-progressive-image": "^3.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
   }
 }

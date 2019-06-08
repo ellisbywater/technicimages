@@ -3,7 +3,7 @@
     <h3>Images</h3>
     <div class="columns is-multiline">
       <div v-for="image in getImageList" :key="image.id" class="column is-one-third">
-        <image-card :imageUrl="image.url" :author="image.author"></image-card>
+        <image-card :imageUrl="image.gridSize" :author="image.name"></image-card>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
     ImageCard
   },
   methods: {
-    ...mapActions(['fetchImageList'])
+    ...mapActions(['fetchImageList', 'getImageList'])
   },
   computed: mapGetters(['getImageList']),
   created() {
