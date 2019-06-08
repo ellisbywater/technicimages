@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-    getImageList(state){return state.images }
+    getImageList(state) {return state.images }
 }
 
 const actions = {
@@ -13,11 +13,10 @@ const actions = {
         const response = await axios.get('/api/images', {headers: {ContentType: 'application/json'}})
         commit('setImageList', response.data)
     }
-    
 }
 
 const mutations = {
-    setImageList: (state, images) => (state.images = images)
+    setImageList: (state, images) => (state.images = images),
 }
 
 export default {

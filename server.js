@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const cors = require('cors')
 const logger = require('morgan')
 const fetch = require('node-fetch')
 const app = express()
@@ -20,7 +19,7 @@ const headers = {
 }
 
 app.get('/api/images', (req, res) => {
-    fetch('https://api.unsplash.com/photos', {headers: headers})
+    fetch('https://api.unsplash.com/collections/827807/photos', { headers })
     .then(res => res.json())
     .then(data => {
         let images = []
@@ -36,5 +35,16 @@ app.get('/api/images', (req, res) => {
     })
 })
 
+app.get('/api/image/:id', (req, res) => {
+    fetch(`https://api.unsplash.com/photos/${req.params.id}/statistics`, { headers })
+    .then(res => res.json())
+    .then(data => {
+        let { downloads, views } = data
+        res.send({downloads, views})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
 
 app.listen(port, () => console.log(`Sever running on port ${port}`))

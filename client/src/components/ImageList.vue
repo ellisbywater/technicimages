@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h3>Images</h3>
+    <div class="hero">
+        <h1 class="hero-body is-size-1">Technic Images</h1>
+    </div>
     <div class="columns is-multiline">
       <div v-for="image in getImageList" :key="image.id" class="column is-one-third">
-        <image-card :imageUrl="image.gridSize" :author="image.name"></image-card>
+        <image-card :id="image.id" :imageUrl="image.gridSize" :author="image.name"></image-card>
       </div>
     </div>
   </div>
