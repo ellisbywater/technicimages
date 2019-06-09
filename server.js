@@ -47,4 +47,9 @@ app.get('/api/image/:id', (req, res) => {
     })
 })
 
+if(process.env.NODE_ENV==='production') {
+    app.use(express.static(__dirname + '/public/'))
+}
+
 app.listen(port, () => console.log(`Sever running on port ${port}`))
+
