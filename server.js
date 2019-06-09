@@ -11,7 +11,6 @@ const { UNSPLASH_ACCESS_KEY, UNSPLASH_SECRET_KEY} = process.env
 app.use(bodyParser.json())
 app.use(logger('combined'))
 
-
 const headers = {
     "Authorization": `Client-ID ${UNSPLASH_ACCESS_KEY}`,
     "Content-Type": "application/json",
@@ -48,9 +47,9 @@ app.get('/api/image/:id', (req, res) => {
 })
 
 if(process.env.NODE_ENV==='production') {
-    app.use(express.static(__dirname + '/public/'))
+    app.use(express.static(__dirname + '/production/'))
 
-    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/production/index.html'))
 }
 
 app.listen(port, () => console.log(`Sever running on port ${port}`))
