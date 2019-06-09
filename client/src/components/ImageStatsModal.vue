@@ -6,8 +6,30 @@
             </figure>
         </div>
         <div class="card-content">
-            <p v-if="loading">Loading</p>
-            <p v-else>Downloads {{stats.downloads.total}}</p>
+            <div v-if="loading">
+                <p>Loading</p>
+            </div>
+            
+            <div v-else>
+               <h3 class="has-text-weight-medium">Downloads</h3> 
+               <ul>
+                   <li>Total: {{stats.downloads.total}}</li>
+                   <li>Last 30 Days: {{stats.downloads.historical.change}}</li>
+                   <li>Most Recent Download: {{
+                       stats.downloads.historical.values[stats.downloads.historical.values.length -1].date
+                       }}
+                    </li>
+               </ul>
+               <h3 class="has-text-weight-medium">Views</h3> 
+               <ul>
+                   <li>Total: {{stats.views.total}}</li>
+                   <li>Last 30 Days: {{stats.views.historical.change}}</li>
+                   <li>Most Recent View: {{
+                       stats.views.historical.values[stats.views.historical.values.length -1].date
+                       }}
+                    </li>
+               </ul>
+            </div>
         </div>
     </div>
 </template>

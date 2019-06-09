@@ -5,6 +5,7 @@ import App from './App.vue'
 import store from './store'
 
 import 'buefy/dist/buefy.css'
+import './registerServiceWorker'
 
 Vue.use(Vuex)
 Vue.use(Buefy)
