@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const logger = require('morgan')
 const fetch = require('node-fetch')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 5000
 require('dotenv').config()
 
 const { UNSPLASH_ACCESS_KEY, UNSPLASH_SECRET_KEY} = process.env
@@ -49,6 +49,8 @@ app.get('/api/image/:id', (req, res) => {
 
 if(process.env.NODE_ENV==='production') {
     app.use(express.static(__dirname + '/public/'))
+
+    app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'))
 }
 
 app.listen(port, () => console.log(`Sever running on port ${port}`))
