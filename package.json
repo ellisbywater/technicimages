@@ -4,9 +4,10 @@
   "description": "server for vue-image",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "client": "npm run serve --prefix client",
-    "dev": "concurrently \"npm start\" \"npm run client\""
+    "dev:all": "concurrently \"npm start\" \"npm run client\""
   },
   "author": "ebwx",
   "license": "ISC",
